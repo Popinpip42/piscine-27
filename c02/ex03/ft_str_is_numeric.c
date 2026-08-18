@@ -12,11 +12,20 @@
 
 int	ft_str_is_numeric(char *str)
 {
+	int	res;
 
+	res = 0;
+	while (*str && (*str >= '0' && *str <= '9'))
+		str++;
+	if (*str == '\0')
+		res = 1;
+	return (res);
 }
 
+/*
 #include <stdio.h>
-int	main(void)
+int	main(int ac, char **av)
 {
-
+	printf("%d\n", ft_str_is_numeric(av[ac-1]));
 }
+*/
