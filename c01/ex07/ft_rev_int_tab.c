@@ -1,60 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lusirpa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 17:55:02 by lusirpa           #+#    #+#             */
-/*   Updated: 2026/08/18 17:55:03 by lusirpa          ###   ########.fr       */
+/*   Created: 2026/08/18 18:53:34 by lusirpa           #+#    #+#             */
+/*   Updated: 2026/08/18 19:49:12 by lusirpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	add_padding(int n)
-{
-	if (n < 10)
-		write(1, "0", 1);
-}
-
-void	ft_putnbr(int nb)
-{
-	if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		nb %= 10;
-	}
-	write(1, &(char){nb + '0'}, 1);
-}
-
-void	ft_print_comb2(void)
+void	ft_rev_int_tab(int *tab, int size)
 {
 	int	i;
-	int	j;
+	int	to_place;
 
 	i = 0;
-	while (i <= 98)
+	while (i < size)
 	{
-		j = i + 1;
-		while (j <= 99)
-		{
-			add_padding(i);
-			ft_putnbr(i);
-			write(1, " ", 1);
-			add_padding(j);
-			ft_putnbr(j);
-			if (i != 98)
-				write(1, ", ", 3);
-			j++;
-		}
+		to_place = tab[size - 1];
+		tab[size - 1] = tab[i];
+		tab[i] = to_place;
+		size--;
 		i++;
 	}
 }
 
 /*
+#include <stdio.h>
 int	main(void)
 {
-	ft_print_comb2();
+	//int	tab[6] = {0, 1, 2 , 3, 4, 5};
+	int	tab[6] = {5, 1, 2 , 3, 4, 10};
+	ft_rev_int_tab(tab, 6);
+	for (int i = 0; i < 6; i++)
+		printf("%d\n", tab[i]);
 }
 */

@@ -1,48 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_div_mod.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lusirpa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 17:54:54 by lusirpa           #+#    #+#             */
-/*   Updated: 2026/08/18 17:54:55 by lusirpa          ###   ########.fr       */
+/*   Created: 2026/08/18 18:38:48 by lusirpa           #+#    #+#             */
+/*   Updated: 2026/08/18 18:42:56 by lusirpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_comb(void)
+void	ft_div_mod(int a, int b, int *div, int *mod)
 {
-	char	a;
-	char	b;
-	char	c;
+	int	res;
+	int	modi;
 
-	a = '0';
-	while (a <= '7')
-	{
-		b = a + 1;
-		while (b <= '8')
-		{
-			c = b + 1;
-			while (c <= '9')
-			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a != '7')
-					write(1, ", ", 2);
-				c++;
-			}
-			b++;
-		}
-		a++;
-	}
+	res = a / b;
+	modi = a % b;
+	*div = res;
+	*mod = modi;
 }
 
 /*
+#include <stdio.h>
 int	main(void)
 {
-	ft_print_comb();
-}
+	int	a = 5;
+	int	b = 2;
+	int	div, mod;
+	ft_div_mod(a, b, &div, &mod);
+	printf("div: %d, mod: %d\n", div, mod);
+} 
 */

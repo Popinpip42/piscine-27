@@ -1,48 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lusirpa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 17:54:54 by lusirpa           #+#    #+#             */
-/*   Updated: 2026/08/18 17:54:55 by lusirpa          ###   ########.fr       */
+/*   Created: 2026/08/18 18:34:19 by lusirpa           #+#    #+#             */
+/*   Updated: 2026/08/18 18:34:22 by lusirpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_comb(void)
+void	ft_putstr(char *str)
 {
-	char	a;
-	char	b;
-	char	c;
-
-	a = '0';
-	while (a <= '7')
+	while (str)
 	{
-		b = a + 1;
-		while (b <= '8')
-		{
-			c = b + 1;
-			while (c <= '9')
-			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a != '7')
-					write(1, ", ", 2);
-				c++;
-			}
-			b++;
-		}
-		a++;
+		write(1, str, 1);
+		str++;
 	}
 }
-
-/*
-int	main(void)
-{
-	ft_print_comb();
-}
-*/

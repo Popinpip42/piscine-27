@@ -1,51 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lusirpa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 17:55:02 by lusirpa           #+#    #+#             */
-/*   Updated: 2026/08/18 17:55:03 by lusirpa          ###   ########.fr       */
+/*   Created: 2026/08/18 19:49:35 by lusirpa           #+#    #+#             */
+/*   Updated: 2026/08/18 20:09:01 by lusirpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	add_padding(int n)
-{
-	if (n < 10)
-		write(1, "0", 1);
-}
-
-void	ft_putnbr(int nb)
-{
-	if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		nb %= 10;
-	}
-	write(1, &(char){nb + '0'}, 1);
-}
-
-void	ft_print_comb2(void)
+void	ft_sort_int_tab(int *tab, int size)
 {
 	int	i;
 	int	j;
+	int	tmp;
 
 	i = 0;
-	while (i <= 98)
+	while (i < size - 1)
 	{
 		j = i + 1;
-		while (j <= 99)
+		while (j < size)
 		{
-			add_padding(i);
-			ft_putnbr(i);
-			write(1, " ", 1);
-			add_padding(j);
-			ft_putnbr(j);
-			if (i != 98)
-				write(1, ", ", 3);
+			if (tab[i] > tab[j])
+			{
+				tmp = tab[i];
+				tab[i] = tab[j];
+				tab[j] = tmp;
+			}
 			j++;
 		}
 		i++;
@@ -53,8 +35,12 @@ void	ft_print_comb2(void)
 }
 
 /*
+#include <stdio.h>
 int	main(void)
 {
-	ft_print_comb2();
+	int	tav[5] = {4, 3, 8, 1, 2};
+	ft_sort_int_tab(tav, 5);
+	for (int i = 0; i < 5; i++)
+		printf("%d\n", tav[i]);
 }
 */

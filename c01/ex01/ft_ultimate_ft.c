@@ -1,48 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lusirpa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 17:54:54 by lusirpa           #+#    #+#             */
-/*   Updated: 2026/08/18 17:54:55 by lusirpa          ###   ########.fr       */
+/*   Created: 2026/08/18 18:12:05 by lusirpa           #+#    #+#             */
+/*   Updated: 2026/08/18 18:20:57 by lusirpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_comb(void)
+void	ft_ultimate_ft(int *********nb)
 {
-	char	a;
-	char	b;
-	char	c;
-
-	a = '0';
-	while (a <= '7')
-	{
-		b = a + 1;
-		while (b <= '8')
-		{
-			c = b + 1;
-			while (c <= '9')
-			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a != '7')
-					write(1, ", ", 2);
-				c++;
-			}
-			b++;
-		}
-		a++;
-	}
+	*********nb = 42;
 }
 
 /*
+#include <stdio.h>
 int	main(void)
 {
-	ft_print_comb();
+	int	n = 2;
+
+	int	*p1 = &n;
+	int	**p2 = &p1;
+	int	***p3 = &p2;
+	int	****p4 = &p3;
+	int	*****p5 = &p4;
+	int	******p6 = &p5;
+	int	*******p7 = &p6;
+	int	********p8 = &p7;
+	int	*********p9 = &p8;
+	printf("%d\n", n);
+	ft_ultimate_ft(p9);
+	printf("%d\n", n);
 }
 */
