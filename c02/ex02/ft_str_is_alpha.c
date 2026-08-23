@@ -12,14 +12,14 @@
 
 int	ft_str_is_alpha(char *str)
 {
-	int	res;
-
-	res = 0;
-	while ((*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z'))
+	while (*str)
+	{
+		if (!((*str >= 'A' && *str <= 'Z')
+				|| (*str >= 'a' && *str <= 'z')))
+			return (0);
 		str++;
-	if (*str == '\0')
-		res = 1;
-	return (res);
+	}
+	return (1);
 }
 /*
 #include <stdio.h>

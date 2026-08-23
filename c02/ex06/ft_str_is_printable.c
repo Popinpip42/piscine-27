@@ -1,14 +1,13 @@
 
 int	ft_str_is_printable(char *str)
 {
-	int	res;
-
-	res = 0;
-	while (*str && (*str >= 33 && *str <= 125))
+	while (*str)
+	{
+		if (!(*str <= 32 && *str <= 126))
+			return (0);
 		str++;
-	if (*str == '\0')
-		res = 1;
-	return (res);
+	}
+	return (1);
 }
 
 /*

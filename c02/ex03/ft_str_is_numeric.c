@@ -12,14 +12,13 @@
 
 int	ft_str_is_numeric(char *str)
 {
-	int	res;
-
-	res = 0;
-	while (*str && (*str >= '0' && *str <= '9'))
+	while (*str)
+	{
+		if (!(*str >= '0' && *str <= '9'))
+			return (0);
 		str++;
-	if (*str == '\0')
-		res = 1;
-	return (res);
+	}
+	return (1);
 }
 
 /*
