@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lusirpa <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/24 18:33:35 by lusirpa           #+#    #+#             */
+/*   Updated: 2026/08/24 18:34:54 by lusirpa          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <unistd.h>
 
@@ -16,7 +27,7 @@ void	build_hex_arr(char *arr)
 	}
 }
 
-void ft_putstr_non_printable(char *str)
+void	ft_putstr_non_printable(char *str)
 {
 	char	hex_arr[16];
 
